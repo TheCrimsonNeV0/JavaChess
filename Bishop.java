@@ -9,7 +9,6 @@ public class Bishop extends Piece{
     @Override
     Position move(int from_x, int from_y, int to_x, int to_y) throws InvalidMoveException {
         if (isPathAvailable(from_x, from_y, to_x, to_y)){
-            System.out.println(" isPathAvailable(from_x,from_y,to_x,to_y) = " + isPathAvailable(from_x, from_y, to_x, to_y));
             Board.chessBoardArray[from_x][from_y] = null;
             Board.chessBoardArray[to_x][to_y] = this;
         }
@@ -54,6 +53,6 @@ public class Bishop extends Piece{
                 }
             }
         }
-        return Board.chessBoardArray[to_x][to_y] == null || Board.chessBoardArray[to_x][to_y].color == this.color;
+        return Board.chessBoardArray[to_x][to_y] == null || Board.chessBoardArray[to_x][to_y].color != this.color;
     }
 }
