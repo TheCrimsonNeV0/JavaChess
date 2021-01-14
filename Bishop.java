@@ -27,30 +27,29 @@ public class Bishop extends Piece{
             return false;
 
         if (dif_x > 0 && dif_y < 0) {        // NE
-            for (int i = from_x+1, j = from_y+1; i < to_x; i++, j++){
+            for (int i = from_x+1, j = from_y-1; i < to_x; i++, j--){
                 if (Board.chessBoardArray[i][j] != null){
                     return false;
                 }
             }
         }
         else if (dif_x < 0 && dif_y < 0) {       // NW
-            for (int i = from_x-1; i > to_x; i--){
-                if (Board.chessBoardArray[i][from_y] != null){
-                    System.out.println("siktir " + i);
+            for (int i = from_x-1, j = from_y-1; i > to_x; i--, j--){
+                if (Board.chessBoardArray[i][j] != null){
                     return false;
                 }
             }
         }
         else if (dif_x > 0 && dif_y > 0){          // SE
-            for (int i = from_y+1; i < to_y; i++){
-                if (Board.chessBoardArray[from_x][i] != null){
+            for (int i = from_x+1, j = from_y+1; i < to_x; i++, j++){
+                if (Board.chessBoardArray[i][j] != null){
                     return false;
                 }
             }
         }
         else if (dif_x < 0 && dif_y > 0) {         // SW
-            for (int i = from_y-1; i > to_y; i--){
-                if (Board.chessBoardArray[from_x][i] != null){
+            for (int i = from_x-1, j = from_y+1; i > to_x; i--, j++){
+                if (Board.chessBoardArray[i][j] != null){
                     return false;
                 }
             }
