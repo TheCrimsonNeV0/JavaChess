@@ -10,12 +10,16 @@ public class Rook extends Piece{
     @Override
     Position move(int from_x, int from_y, int to_x, int to_y) throws InvalidMoveException {
         if (isPathAvailable(from_x,from_y,to_x,to_y)){
-            System.out.println(" isPathAvailable(from_x,from_y,to_x,to_y) = " + isPathAvailable(from_x,from_y,to_x,to_y));
+            System.out.println(" isPathAvailable(from_x,from_y,to_x,to_y) = " + isPathAvailable(from_x, from_y, to_x, to_y));
+            Board.chessBoardArray[from_x][from_y] = null;
+            Board.chessBoardArray[to_x][to_y] = this;
         }
+        else throw new InvalidMoveException();
         this.hasMoved = true;
-        return null;
+        return new Position(to_x,to_y);
     }
 
+    @Override
     boolean isPathAvailable(int from_x, int from_y, int to_x, int to_y){
         if (from_x != to_x && from_y != to_y) return false;
         if (from_x < to_x) {        // right
