@@ -1,10 +1,10 @@
 public class Pawn extends Piece {
-    boolean didMove;
     boolean hasMoved;
     boolean color;
 
-    public Pawn(int color) {
-        didMove = false;
+    public Pawn(boolean color) {
+        hasMoved = false;
+        this.color = color;
     }
 
     Position move(int from_x, int from_y, int to_x, int to_y) throws InvalidMoveException {
