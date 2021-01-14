@@ -46,6 +46,6 @@ public class Rook extends Piece{
                 }
             }
         }
-        return Board.chessBoardArray[to_x][to_y] == null || Board.chessBoardArray[to_x][to_y].color == this.color;
+        return Board.chessBoardArray[to_x][to_y] == null || Board.chessBoardArray[to_x][to_y].color != this.color;
     }
 }
