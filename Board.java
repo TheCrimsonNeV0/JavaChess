@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Board extends JFrame implements ActionListener, MouseListener, MouseMotionListener {
-    private Piece[][] chessBoardArray;
+    public static Piece[][] chessBoardArray;
     public Board() {
         chessBoardArray = new Piece[8][8];
         setSize(1000, 1000);
