@@ -9,7 +9,7 @@ public class Pawn extends Piece {
 
     Position move(int from_x, int from_y, int to_x, int to_y) throws InvalidMoveException {
         if (from_y == to_y) {
-            if (color) {
+            if (color) { //White
                 if (from_x == to_x + 1) return new Position(to_x, to_y);
                 else if (from_x == to_x + 2) {
                     if (!hasMoved) return new Position(to_x, to_y);
@@ -17,7 +17,7 @@ public class Pawn extends Piece {
                 }
                 else throw new InvalidMoveException();
             }
-            else {
+            else { //Black
                 if (from_x == to_x - 1) return new Position(to_x, to_y);
                 else if (from_x == to_x - 2) {
                     if (!hasMoved) return new Position(to_x, to_y);
