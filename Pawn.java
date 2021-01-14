@@ -34,10 +34,20 @@ public class Pawn extends Piece {
     boolean isPathAvailable(int from_x, int from_y, int to_x, int to_y) {
         boolean isAvailable = true;
         if (color == Piece.WHITE) { //White
-            if ()
+            for (int i = to_y; i <= from_y; i++) {
+                if (Board.chessBoardArray[to_x][i] == null) {
+                    isAvailable = false;
+                    break;
+                }
+            }
         }
-        else { //
-
+        else { //Black
+            for (int i = from_y; i <= to_y; i++) {
+                if (Board.chessBoardArray[to_x][i] == null) {
+                    isAvailable = false;
+                    break;
+                }
+            }
         }
         return isAvailable;
     }
