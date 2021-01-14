@@ -8,11 +8,11 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
     public static Piece[][] chessBoardArray;
     public Board() {
         chessBoardArray = new Piece[8][8];
-        setSize(1000, 1000);
+        /*setSize(1000, 1000);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setResizable(true);
         setBackground(Color.orange);
-        setVisible(true);
+        setVisible(true);*/
     }
 
     public void paint(Graphics g) {
