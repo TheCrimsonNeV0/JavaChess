@@ -15,6 +15,7 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
         setVisible(true);*/
     }
 
+
     public void paint(Graphics g) {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
