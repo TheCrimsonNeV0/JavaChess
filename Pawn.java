@@ -10,19 +10,21 @@ public class Pawn extends Piece {
     }
 
     Position move(int from_x, int from_y, int to_x, int to_y) throws InvalidMoveException {
-        if (from_y == to_y) {
+        if (from_x == to_x) {
             if (color == Piece.WHITE) { //White
-                if (from_x == to_x + 1) {
+                if (from_y == to_y + 1) {
                     if (isPathAvailable(from_x, from_y, to_x, to_y)) {
                         hasMoved = true;
                         return new Position(to_x, to_y);
                     }
                     else throw new InvalidMoveException();
                 }
-                else if (from_x == to_x + 2) {
+                else if (from_y == to_y + 2) {
                     if (!hasMoved) {
                         if (isPathAvailable(from_x, from_y, to_x, to_y)) {
                             hasMoved = true;
+                            Board.chessBoardArray[from_x][from_y] = null;
+                            Board.chessBoardArray[to_x][to_y] = this;
                             return new Position(to_x, to_y);
                         }
                         else throw new InvalidMoveException();
@@ -32,9 +34,19 @@ public class Pawn extends Piece {
                 else throw new InvalidMoveException();
             }
             else { //Black
-                if (from_x == to_x - 1) return new Position(to_x, to_y);
-                else if (from_x == to_x - 2) {
-                    if (!hasMoved) return new Position(to_x, to_y);
+                if (from_y == to_y - 1) {
+                    hasMoved = true;
+                    Board.chessBoardArray[from_x][from_y] = null;
+                    Board.chessBoardArray[to_x][to_y] = this;
+                    return new Position(to_x, to_y);
+                }
+                else if (from_y == to_y - 2) {
+                    if (!hasMoved) {
+                        hasMoved = true;
+                        Board.chessBoardArray[from_x][from_y] = null;
+                        Board.chessBoardArray[to_x][to_y] = this;
+                        return new Position(to_x, to_y);
+                    }
                     else throw new InvalidMoveException();
                 }
                 else throw new InvalidMoveException();
