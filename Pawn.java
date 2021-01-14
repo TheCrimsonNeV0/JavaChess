@@ -9,13 +9,12 @@ public class Pawn extends Piece {
         this.color = color;
     }
 
-    Position move(int from_x, int from_y, int to_x, int to_y) throws InvalidMoveException {
+    void move(int from_x, int from_y, int to_x, int to_y) throws InvalidMoveException {
         if (from_x == to_x) {
             if (color == Piece.WHITE) { //White
                 if (from_y == to_y + 1) {
                     if (isPathAvailable(from_x, from_y, to_x, to_y)) {
                         hasMoved = true;
-                        return new Position(to_x, to_y);
                     }
                     else throw new InvalidMoveException();
                 }
@@ -25,7 +24,6 @@ public class Pawn extends Piece {
                             hasMoved = true;
                             Board.chessBoardArray[from_x][from_y] = null;
                             Board.chessBoardArray[to_x][to_y] = this;
-                            return new Position(to_x, to_y);
                         }
                         else throw new InvalidMoveException();
                     }
@@ -38,14 +36,12 @@ public class Pawn extends Piece {
                     hasMoved = true;
                     Board.chessBoardArray[from_x][from_y] = null;
                     Board.chessBoardArray[to_x][to_y] = this;
-                    return new Position(to_x, to_y);
                 }
                 else if (from_y == to_y - 2) {
                     if (!hasMoved) {
                         hasMoved = true;
                         Board.chessBoardArray[from_x][from_y] = null;
                         Board.chessBoardArray[to_x][to_y] = this;
-                        return new Position(to_x, to_y);
                     }
                     else throw new InvalidMoveException();
                 }
