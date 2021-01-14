@@ -32,7 +32,6 @@ public class Bishop extends Piece{
                     return false;
                 }
             }
-            return Board.chessBoardArray[to_x][to_y] == null || Board.chessBoardArray[to_x][to_y].color != this.color;
         }
         else if (dif_x < 0 && dif_y < 0) {       // NW
             for (int i = from_x-1; i > to_x; i--){
@@ -41,7 +40,6 @@ public class Bishop extends Piece{
                     return false;
                 }
             }
-            return Board.chessBoardArray[to_x][from_y] == null || Board.chessBoardArray[to_x][from_y].color != this.color;
         }
         else if (dif_x > 0 && dif_y > 0){          // SE
             for (int i = from_y+1; i < to_y; i++){
@@ -49,7 +47,6 @@ public class Bishop extends Piece{
                     return false;
                 }
             }
-            return Board.chessBoardArray[from_x][to_y] == null || Board.chessBoardArray[from_x][to_y].color != this.color;
         }
         else if (dif_x < 0 && dif_y > 0) {         // SW
             for (int i = from_y-1; i > to_y; i--){
@@ -57,8 +54,7 @@ public class Bishop extends Piece{
                     return false;
                 }
             }
-            return Board.chessBoardArray[from_x][to_y] == null || Board.chessBoardArray[from_x][to_y].color != this.color;
         }
-        return true;
+        return Board.chessBoardArray[to_x][to_y] == null || Board.chessBoardArray[to_x][to_y].color == this.color;
     }
 }
