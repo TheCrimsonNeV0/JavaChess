@@ -32,7 +32,6 @@ public class Rook extends Piece{
         } else if (from_x > to_x) {       // left
             for (int i = from_x-1; i > to_x; i--){
                 if (Board.chessBoardArray[i][from_y] != null){
-                    System.out.println("siktir " + i);
                     return false;
                 }
             }
