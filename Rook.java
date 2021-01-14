@@ -28,7 +28,6 @@ public class Rook extends Piece{
                     return false;
                 }
             }
-            return Board.chessBoardArray[to_x][from_y] == null || Board.chessBoardArray[to_x][from_y].color != this.color;
         } else if (from_x > to_x) {       // left
             for (int i = from_x-1; i > to_x; i--){
                 if (Board.chessBoardArray[i][from_y] != null){
@@ -36,22 +35,19 @@ public class Rook extends Piece{
                     return false;
                 }
             }
-            return Board.chessBoardArray[to_x][from_y] == null || Board.chessBoardArray[to_x][from_y].color != this.color;
         } else if (from_y < to_y){          // down
             for (int i = from_y+1; i < to_y; i++){
                 if (Board.chessBoardArray[from_x][i] != null){
                     return false;
                 }
             }
-            return Board.chessBoardArray[from_x][to_y] == null || Board.chessBoardArray[from_x][to_y].color != this.color;
         } else if (from_y > to_y) {         // up
             for (int i = from_y-1; i > to_y; i--){
                 if (Board.chessBoardArray[from_x][i] != null){
                     return false;
                 }
             }
-            return Board.chessBoardArray[from_x][to_y] == null || Board.chessBoardArray[from_x][to_y].color != this.color;
         }
-        return true;
+        return Board.chessBoardArray[to_x][to_y] == null || Board.chessBoardArray[to_x][to_y].color == this.color;
     }
 }
