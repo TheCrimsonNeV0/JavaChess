@@ -1,16 +1,21 @@
 // Written by keremenci
 
 public class Rook extends Piece{
-    boolean hasMoved;
+    boolean hasMoved;           // for castling
+
+    // Constructor
+
     public Rook(boolean color){
         this.color = color;
         this.hasMoved = false;
     }
 
+
+    // Move method
+
     @Override
     void move(int from_x, int from_y, int to_x, int to_y) throws InvalidMoveException {
         if (isPathAvailable(from_x,from_y,to_x,to_y)){
-            System.out.println(" isPathAvailable(from_x,from_y,to_x,to_y) = " + isPathAvailable(from_x, from_y, to_x, to_y));
             Board.chessBoardArray[from_x][from_y] = null;
             Board.chessBoardArray[to_x][to_y] = this;
         }
@@ -18,9 +23,12 @@ public class Rook extends Piece{
         this.hasMoved = true;
     }
 
+    // Simply iterate through the path to see if the specified path is available
+
     @Override
     boolean isPathAvailable(int from_x, int from_y, int to_x, int to_y){
         if (from_x != to_x && from_y != to_y) return false;
+
         if (from_x < to_x) {        // right
             for (int i = from_x+1; i < to_x; i++){
                 if (Board.chessBoardArray[i][from_y] != null){
@@ -46,6 +54,7 @@ public class Rook extends Piece{
                 }
             }
         }
+        // Check if the target color is different or the position is empty
         return Board.chessBoardArray[to_x][to_y] == null || Board.chessBoardArray[to_x][to_y].color != this.color;
     }
 }
