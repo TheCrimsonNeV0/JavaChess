@@ -2,7 +2,7 @@ public class Main {
     public static void main(String[] args) {
         Board b = new Board();
         Board.chessBoardArray[3][6] = new Queen(Piece.WHITE);
-        Board.chessBoardArray[4][6] = new Rook(Piece.BLACK);
+        //Board.chessBoardArray[4][6] = new Rook(Piece.BLACK);
         printboard();
         try {
             Board.chessBoardArray[3][6].move(3,6,5,6);
@@ -29,6 +29,6 @@ public class Main {
             }
             System.out.println();
         }
-        System.out.println("otuzbir");
+        System.out.println("*******************");
     }
 }

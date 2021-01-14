@@ -23,8 +23,8 @@ public class Queen extends Piece{
         int dif_y = to_y - from_y;
         int moveType = -1; // 0 -> rook 1 -> bishop
 
-        moveType = Math.abs(dif_x) == Math.abs(dif_y) ? 0 : moveType;
-        moveType = dif_x == 0 || dif_y == 0 ? 1 : moveType;
+        moveType = dif_x == 0 || dif_y == 0 ? 0 : moveType;
+        moveType = Math.abs(dif_x) == Math.abs(dif_y) ? 1 : moveType;
 
         switch (moveType){
             case 0:
@@ -69,14 +69,14 @@ public class Queen extends Piece{
                         }
                     }
                 }
-                else if (dif_x > 0 && dif_y > 0){          // SE
+                else if (dif_x > 0){          // SE
                     for (int i = from_x+1, j = from_y+1; i < to_x; i++, j++){
                         if (Board.chessBoardArray[i][j] != null){
                             return false;
                         }
                     }
                 }
-                else if (dif_x < 0 && dif_y > 0) {         // SW
+                else if (dif_x < 0) {         // SW
                     for (int i = from_x-1, j = from_y+1; i > to_x; i--, j++){
                         if (Board.chessBoardArray[i][j] != null){
                             return false;
