@@ -1,11 +1,11 @@
 public class Main {
     public static void main(String[] args) {
         Board b = new Board();
-        Board.chessBoardArray[5][4] = new Rook(Piece.WHITE);
-        Board.chessBoardArray[2][4] = new Rook(Piece.WHITE);
+        Board.chessBoardArray[3][6] = new Pawn(Piece.WHITE);
+        //Board.chessBoardArray[4][6] = new Pawn(Piece.WHITE);
         printboard();
         try {
-            Board.chessBoardArray[5][4].move(5,4,2,4);
+            Board.chessBoardArray[3][6].move(3,6,3,5);
             printboard();
         } catch (InvalidMoveException e) {
             e.printStackTrace();
