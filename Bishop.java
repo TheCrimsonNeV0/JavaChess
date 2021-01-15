@@ -5,8 +5,8 @@ public class Bishop extends Piece{
 
     public Bishop(boolean color){
         this.color = color;
-        whiteImageIcon = new ImageIcon("Images/white_bishop.png");
-        blackImageIcon = new ImageIcon("Images/black_bishop.png");
+        whiteImageIcon = new ImageIcon("Images/white_bishop.png"); // White bishop image
+        blackImageIcon = new ImageIcon("Images/black_bishop.png"); // Black bishop image
     }
 
     // Move method
