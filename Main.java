@@ -1,13 +1,20 @@
 public class Main {
     public static void main(String[] args) {
         Board b = new Board();
-        Board.chessBoardArray[3][6] = new Queen(Piece.WHITE);
-        //Board.chessBoardArray[4][6] = new Rook(Piece.BLACK);
+        for (int i = 0; i < 8; i++) {
+            Board.chessBoardArray[i][6] = new Pawn(Piece.WHITE);
+        }
+        Board.chessBoardArray[2][5] = new Rook(Piece.BLACK);
+
+
+        b.repaint();
         printboard();
-        try {
-            Board.chessBoardArray[3][6].move(3,6,5,6);
-            printboard();
-            Board.chessBoardArray[5][6].move(5,6,5,3);
+        /*try {
+
+            //printboard();
+            //Thread.sleep(500000000);
+            b.repaint();
+            /*Board.chessBoardArray[5][6].move(5,6,5,3);
             printboard();
             Board.chessBoardArray[5][3].move(5,3,3,5);
             printboard();
@@ -15,7 +22,7 @@ public class Main {
             printboard();
         } catch (InvalidMoveException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     public static void printboard(){
