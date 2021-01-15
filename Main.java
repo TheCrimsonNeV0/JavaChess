@@ -7,7 +7,7 @@ public class Main {
         Board.chessBoardArray[2][5] = new Rook(Piece.BLACK);
 
 
-        b.repaint();
+        b.repaint(); // Prints the pieces to the board
         printboard();
         /*try {
 
