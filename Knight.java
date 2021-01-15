@@ -5,8 +5,8 @@ public class Knight extends Piece{
 
     public Knight(boolean color) {
         this.color = color;
-        whiteImageIcon = new ImageIcon("Images/white_knight.png");
-        blackImageIcon = new ImageIcon("Images/black_knight.png");
+        whiteImageIcon = new ImageIcon("Images/white_knight.png"); // White image of the knight
+        blackImageIcon = new ImageIcon("Images/black_knight.png"); // Black image of the knight
     }
 
     // Move method
