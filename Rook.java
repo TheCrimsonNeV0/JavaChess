@@ -1,13 +1,17 @@
 // Written by keremenci
 
+import javax.swing.*;
+
 public class Rook extends Piece{
     boolean hasMoved;           // for castling
 
     // Constructor
 
-    public Rook(boolean color){
-        this.color = color;
+    public Rook(boolean color) {
         this.hasMoved = false;
+        this.color = color;
+        whiteImageIcon = new ImageIcon("Images/white_rook.png");
+        blackImageIcon = new ImageIcon("Images/black_rook.png");
     }
 
 

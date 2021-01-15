@@ -1,5 +1,7 @@
 // Written by: Nevzat Umut Demirseren
 
+import javax.swing.*;
+
 public class Pawn extends Piece {
     boolean hasMoved;
     boolean color;
@@ -7,6 +9,8 @@ public class Pawn extends Piece {
     public Pawn(boolean color) {
         hasMoved = false;
         this.color = color;
+        whiteImageIcon = new ImageIcon("Images/white_pawn.png");
+        blackImageIcon = new ImageIcon("Images/black_pawn.png");
     }
 
     void move(int from_x, int from_y, int to_x, int to_y) throws InvalidMoveException {

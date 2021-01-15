@@ -1,7 +1,11 @@
+import javax.swing.*;
+
 public class Queen extends Piece{
 
-    public Queen(boolean color){
+    public Queen(boolean color) {
         this.color = color;
+        whiteImageIcon = new ImageIcon("Images/white_queen.png");
+        blackImageIcon = new ImageIcon("Images/black_queen.png");
     }
 
     // Move method

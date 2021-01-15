@@ -1,8 +1,12 @@
+import javax.swing.*;
+
 //written by Selin Mergen
 public class Knight extends Piece{
 
-    public Knight(boolean color){
+    public Knight(boolean color) {
         this.color = color;
+        whiteImageIcon = new ImageIcon("Images/white_knight.png");
+        blackImageIcon = new ImageIcon("Images/black_knight.png");
     }
 
     // Move method

@@ -1,8 +1,12 @@
+import javax.swing.*;
+
 //written by Selin Mergen
 public class Bishop extends Piece{
 
     public Bishop(boolean color){
         this.color = color;
+        whiteImageIcon = new ImageIcon("Images/white_bishop.png");
+        blackImageIcon = new ImageIcon("Images/black_bishop.png");
     }
 
     // Move method
