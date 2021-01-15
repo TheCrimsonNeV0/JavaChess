@@ -30,7 +30,7 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
                 if ((i + j) % 2 == 0) g.setColor(Color.WHITE);
                 else g.setColor(Color.DARK_GRAY);
                 g.fillRect(100 + 100 * i, 100 + 100 * j, 100, 100);
-                if (chessBoardArray[i][j] != null) {
+                if (chessBoardArray[i][j] != null) { // Prints the necessary images to board
                     if (chessBoardArray[i][j].color == Piece.WHITE) chessBoardArray[i][j].whiteImageIcon.paintIcon(this, g, 120 + 100 * i, 120 + 100 * j);
                     else chessBoardArray[i][j].blackImageIcon.paintIcon(this, g, 120 + 100 * i, 120 + 100 * j);
                 }
@@ -49,7 +49,7 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {
+    public void mouseClicked(MouseEvent e) { // Currently for test. Pawn takes the rook when clicked
         try {
             Board.chessBoardArray[3][6].move(3,6,2,5);
         } catch (InvalidMoveException invalidMoveException) {
