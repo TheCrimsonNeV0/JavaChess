@@ -1,11 +1,11 @@
 import javax.swing.*;
 
 //written by Selin Mergen
-public class Knight extends Piece{
+public class Knight extends Piece {
 
     public Knight(boolean color) {
         this.color = color;
-        whiteImageIcon = new ImageIcon("Images/white_knight.png"); // White image of the knight
+        whiteImageIcon = new ImageIcon("Images/white_knight.png"); // White image of the knight 
         blackImageIcon = new ImageIcon("Images/black_knight.png"); // Black image of the knight
     }
 
