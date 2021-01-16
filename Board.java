@@ -6,8 +6,12 @@ import java.awt.event.*;
 
 public class Board extends JFrame implements ActionListener, MouseListener, MouseMotionListener {
     public static Piece[][] chessBoardArray;
+    Piece movingPiece;
+    int movingPiece_x;
+    int movingPiece_y;
     public Board() {
         chessBoardArray = new Piece[8][8];
+        movingPiece = null;
         setSize(1000, 1000);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -15,11 +19,6 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
         addMouseMotionListener(this);
         setBackground(Color.orange);
         setVisible(true);
-    }
-
-
-    public void paintComponents(Graphics g) {
-        super.paintComponents(g);
     }
 
     public void paint(Graphics g) {
@@ -40,26 +39,44 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        try {
-            Board.chessBoardArray[3][6].move(3,6,2,5);
-        } catch (InvalidMoveException invalidMoveException) {
-            invalidMoveException.printStackTrace();
-        }
-        repaint();
+
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        try {
-            Board.chessBoardArray[3][6].move(3,6,2,5);
-        } catch (InvalidMoveException invalidMoveException) {
-            invalidMoveException.printStackTrace();
-        }
-        repaint();
+
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
+        int x_index;
+        int y_index;
+
+        //Calculates the x index of the moving piece
+        if (e.getX() < 100) {
+            x_index = 0;
+        }
+        else if (900 < e.getX()) {
+            x_index = 7;
+        }
+        else {
+            x_index = (e.getX() - 100) / 100;
+        }
+
+        //Calculates the y index of the moving piece
+        if (e.getY() < 100) {
+            y_index = 0;
+        }
+        else if (900 < e.getY()) {
+            y_index = 7;
+        }
+        else {
+            y_index = (e.getY() - 100) / 100;
+        }
+
+        movingPiece = chessBoardArray[x_index][y_index];
+        movingPiece_x = x_index;
+        movingPiece_y = y_index;
 
     }
 

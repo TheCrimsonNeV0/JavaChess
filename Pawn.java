@@ -13,15 +13,6 @@ public class Pawn extends Piece {
         blackImageIcon = new ImageIcon("Images/black_pawn.png");
     }
 
-    void move(int from_x, int from_y, int to_x, int to_y) throws InvalidMoveException {
-        if (isPathAvailable(from_x, from_y, to_x, to_y)) {
-            Board.chessBoardArray[from_x][from_y] = null;
-            Board.chessBoardArray[to_x][to_y] = this;
-        }
-        else throw new InvalidMoveException();
-        this.hasMoved = true;
-    }
-
     @Override
     boolean isPathAvailable(int from_x, int from_y, int to_x, int to_y) {
         boolean isAvailable = false;

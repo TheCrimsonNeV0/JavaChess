@@ -9,18 +9,6 @@ public class Bishop extends Piece{
         blackImageIcon = new ImageIcon("Images/black_bishop.png");
     }
 
-    // Move method
-
-    @Override
-    void move(int from_x, int from_y, int to_x, int to_y) throws InvalidMoveException {
-        if (isPathAvailable(from_x, from_y, to_x, to_y)) {
-            Board.chessBoardArray[from_x][from_y] = null;
-            Board.chessBoardArray[to_x][to_y] = this;
-        }
-        else
-            throw new InvalidMoveException();
-    }
-
     // Simply iterate through the path to see if the specified path is available
 
     boolean isPathAvailable(int from_x, int from_y, int to_x, int to_y){
