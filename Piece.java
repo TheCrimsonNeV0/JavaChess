@@ -8,6 +8,5 @@ public abstract class Piece {
     ImageIcon whiteImageIcon;
     ImageIcon blackImageIcon;
     boolean color;
-    abstract void move(int from_x, int from_y, int to_x, int to_y) throws InvalidMoveException;
-    abstract boolean isPathAvailable(int from_x, int from_y, int to_x, int to_y);
+    abstract boolean isPathAvailable(Board board, int from_x, int from_y, int to_x, int to_y);
 }
