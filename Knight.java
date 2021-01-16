@@ -1,29 +1,17 @@
 import javax.swing.*;
 
 //written by Selin Mergen
-public class Knight extends Piece {
+public class Knight extends Piece{
 
     public Knight(boolean color) {
         this.color = color;
-        whiteImageIcon = new ImageIcon("Images/white_knight.png"); // White image of the knight 
-        blackImageIcon = new ImageIcon("Images/black_knight.png"); // Black image of the knight
-    }
-
-    // Move method
-
-    @Override
-    void move(int from_x, int from_y, int to_x, int to_y) throws InvalidMoveException {
-        if (isPathAvailable(from_x, from_y, to_x, to_y)) {
-            Board.chessBoardArray[from_x][from_y] = null;
-            Board.chessBoardArray[to_x][to_y] = this;
-        }
-        else
-            throw new InvalidMoveException();
+        whiteImageIcon = new ImageIcon("Images/white_knight.png");
+        blackImageIcon = new ImageIcon("Images/black_knight.png");
     }
 
     // Simply iterate through the path to see if the specified path is available
 
-    boolean isPathAvailable(int from_x, int from_y, int to_x, int to_y){
+    boolean isPathAvailable(Board board, int from_x, int from_y, int to_x, int to_y){
         int dif_x = to_x - from_x;
         int dif_y = to_y - from_y;
 
@@ -31,6 +19,6 @@ public class Knight extends Piece {
             return false;
 
         // Check if the target color is different or the position is empty
-        return Board.chessBoardArray[to_x][to_y] == null || Board.chessBoardArray[to_x][to_y].color != this.color;
+        return board.chessBoardArray[to_x][to_y] == null || board.chessBoardArray[to_x][to_y].color != this.color;
     }
 }
