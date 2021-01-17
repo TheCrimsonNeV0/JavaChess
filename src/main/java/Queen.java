@@ -1,11 +1,13 @@
+package src.main.java;
+
 import javax.swing.*;
 
 public class Queen extends Piece{
 
     public Queen(boolean color) {
         this.color = color;
-        whiteImageIcon = new ImageIcon("Images/white_queen.png");
-        blackImageIcon = new ImageIcon("Images/black_queen.png");
+        whiteImageIcon = new ImageIcon("src/main/resources/white_queen.png");
+        blackImageIcon = new ImageIcon("src/main/resources/black_queen.png");
     }
 
     // Simply iterate through the path to see if the specified path is available

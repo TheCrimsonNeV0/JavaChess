@@ -1,3 +1,4 @@
+package src.main.java;
 // Written by: Nevzat Umut Demirseren
 
 import javax.swing.*;
@@ -8,8 +9,8 @@ public class Pawn extends Piece {
     public Pawn(boolean color) {
         hasMoved = false;
         this.color = color;
-        whiteImageIcon = new ImageIcon("Images/white_pawn.png");
-        blackImageIcon = new ImageIcon("Images/black_pawn.png");
+        whiteImageIcon = new ImageIcon("src/main/resources/white_pawn.png");
+        blackImageIcon = new ImageIcon("src/main/resources/black_pawn.png");
     }
 
     @Override

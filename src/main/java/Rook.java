@@ -1,3 +1,5 @@
+package src.main.java;
+
 // Written by keremenci
 
 import javax.swing.*;
@@ -10,8 +12,8 @@ public class Rook extends Piece{
     public Rook(boolean color) {
         this.hasMoved = false;
         this.color = color;
-        whiteImageIcon = new ImageIcon("Images/white_rook.png");
-        blackImageIcon = new ImageIcon("Images/black_rook.png");
+        whiteImageIcon = new ImageIcon("src/main/resources/white_rook.png");
+        blackImageIcon = new ImageIcon("src/main/resources/black_rook.png");
     }
 
     // Simply iterate through the path to see if the specified path is available

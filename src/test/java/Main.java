@@ -1,3 +1,7 @@
+package src.test.java;
+
+import src.main.java.*;
+
 public class Main {
     public static void main(String[] args) {
         Board b = new Board();
@@ -25,10 +29,10 @@ public class Main {
 
 
 
-        /*b.chessBoardArray[0][0] = new Bishop(Piece.BLACK);
-        b.chessBoardArray[5][0] = new Bishop(Piece.BLACK);
-        b.chessBoardArray[0][5] = new Bishop(Piece.WHITE);
-        b.chessBoardArray[5][5] = new Bishop(Piece.WHITE);*/
+        /*b.chessBoardArray[0][0] = new src.main.java.Bishop(src.main.java.Piece.BLACK);
+        b.chessBoardArray[5][0] = new src.main.java.Bishop(src.main.java.Piece.BLACK);
+        b.chessBoardArray[0][5] = new src.main.java.Bishop(src.main.java.Piece.WHITE);
+        b.chessBoardArray[5][5] = new src.main.java.Bishop(src.main.java.Piece.WHITE);*/
 
 
         b.repaint();
@@ -38,13 +42,13 @@ public class Main {
             //printboard();
             //Thread.sleep(500000000);
             b.repaint();
-            /*Board.chessBoardArray[5][6].move(5,6,5,3);
+            /*src.main.java.Board.chessBoardArray[5][6].move(5,6,5,3);
             printboard();
-            Board.chessBoardArray[5][3].move(5,3,3,5);
+            src.main.java.Board.chessBoardArray[5][3].move(5,3,3,5);
             printboard();
-            Board.chessBoardArray[3][5].move(3,5,5,7);
+            src.main.java.Board.chessBoardArray[3][5].move(3,5,5,7);
             printboard();
-        } catch (InvalidMoveException e) {
+        } catch (src.main.java.InvalidMoveException e) {
             e.printStackTrace();
         }*/
     }

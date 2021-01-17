@@ -1,3 +1,5 @@
+package src.main.java;
+
 //Written by: Nevzat Umut Demirseren
 
 import javax.swing.*;

@@ -1,3 +1,5 @@
+package src.main.java;
+
 import javax.swing.*;
 
 //written by Selin Mergen
@@ -5,8 +7,8 @@ public class Knight extends Piece{
 
     public Knight(boolean color) {
         this.color = color;
-        whiteImageIcon = new ImageIcon("Images/white_knight.png");
-        blackImageIcon = new ImageIcon("Images/black_knight.png");
+        whiteImageIcon = new ImageIcon("src/main/resources/white_knight.png");
+        blackImageIcon = new ImageIcon("src/main/resources/black_knight.png");
     }
 
     // Simply iterate through the path to see if the specified path is available
