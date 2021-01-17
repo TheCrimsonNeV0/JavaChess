@@ -28,6 +28,93 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
         setVisible(true);
     }
 
+    public void replacePawnWithQueen() {
+        for (int i = 0; i < chessBoardArray.length; i++) {
+            if (chessBoardArray[i][0] != null && chessBoardArray[i][0].getClass().getSimpleName().equals("Pawn") && chessBoardArray[i][0].color == Piece.WHITE) {
+                class NewPieceSelection extends JFrame implements MouseListener {
+                    private Piece pieceChoice;
+                    public NewPieceSelection() {
+                        pieceChoice = new Pawn(Piece.WHITE);
+                        setSize(600, 200);
+                        setBackground(Color.CYAN);
+                        setResizable(false);
+                        addMouseListener(this);
+                        setVisible(true);
+                    }
+
+                    public Piece getPieceChoice() {
+                        return pieceChoice;
+                    }
+
+                    @Override
+                    public void paint(Graphics g) {
+                        for (int i = 0; i < 4; i++) {
+                            if (i % 2 == 0) g.setColor(Color.WHITE);
+                            else g.setColor(Color.BLACK);
+
+                            g.fillRect(100 + 100 * i, 60, 100, 100);
+                        }
+
+                        new Rook(Piece.WHITE).whiteImageIcon.paintIcon(this, g, 120, 80);
+                        new Knight(Piece.WHITE).whiteImageIcon.paintIcon(this, g, 220, 80);
+                        new Bishop(Piece.WHITE).whiteImageIcon.paintIcon(this, g, 320, 80);
+                        new Queen(Piece.WHITE).whiteImageIcon.paintIcon(this, g, 420, 80);
+                    }
+
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        int xPosition = e.getX();
+                        int yPosition = e.getY();
+
+                        if (60 <= yPosition && yPosition <= 155) {
+                            if (100 <= xPosition && xPosition < 200) {
+                                pieceChoice = new Rook(Piece.WHITE);
+                                dispose();
+                            }
+                            else if (200 <= xPosition && xPosition < 300) {
+                                pieceChoice = new Knight(Piece.WHITE);
+                                dispose();
+                            }
+                            else if (300 <= xPosition && xPosition < 400) {
+                                pieceChoice = new Bishop(Piece.WHITE);
+                                dispose();
+                            }
+                            else if (400 <= xPosition && xPosition < 500) {
+                                pieceChoice = new Queen(Piece.WHITE);
+                                dispose();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void mousePressed(MouseEvent e) {
+
+                    }
+
+                    @Override
+                    public void mouseReleased(MouseEvent e) {
+
+                    }
+
+                    @Override
+                    public void mouseEntered(MouseEvent e) {
+
+                    }
+
+                    @Override
+                    public void mouseExited(MouseEvent e) {
+
+                    }
+                }
+                NewPieceSelection whitePieceSeceltion = new NewPieceSelection();
+                chessBoardArray[i][0] = whitePieceSeceltion.getPieceChoice();
+            }
+            if (chessBoardArray[i][7] != null && chessBoardArray[i][7].getClass().getSimpleName().equals("Pawn") && chessBoardArray[i][7].color == Piece.BLACK) {
+                chessBoardArray[i][7] = new Queen(Piece.BLACK);
+            }
+        }
+    }
+
     public void fillBackground(Graphics g) {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
@@ -46,6 +133,7 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
 
     public void paint(Graphics g) {
         fillBackground(g);
+        //replacePawnWithQueen();
         if (movingPiece != null) {
             if (movingPiece.color == Piece.WHITE) {
                 movingPiece.whiteImageIcon.paintIcon(this, g, current_x - 30, current_y - 30);
@@ -113,8 +201,7 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
             if (movingPiece.isPathAvailable(this, movingPiece_x, movingPiece_y, destination_x, destination_y)) {
                 chessBoardArray[destination_x][destination_y] = movingPiece;
                 chessBoardArray[movingPiece_x][movingPiece_y] = null;
-            }
-            else {
+            } else {
                 chessBoardArray[movingPiece_x][movingPiece_y] = movingPiece;
             }
             movingPiece = null;
@@ -134,9 +221,11 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        current_x = e.getX();
-        current_y = e.getY();
-        repaint();
+        if (movingPiece != null) {
+            current_x = e.getX();
+            current_y = e.getY();
+            repaint();
+        }
     }
 
     @Override
