@@ -7,4 +7,9 @@ Chess written in java
   - Figuring out how the fuck we program the king, en passant and pawn promotion in
 
 ## To do:
-  - GUI is broken as fuck someone needs to fix it
+  - GUI is broken as fuck someone needs to fix it 
+  - The gameplay is not turn based at all
+###Known gui issues:
+  - Chess pieces flickering
+  - The background doubles as ms paint
+  - You can lose ***some*** of the pieces in the background
