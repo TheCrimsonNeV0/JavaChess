@@ -21,13 +21,13 @@ public class Pawn extends Piece {
                 if (board.chessBoardArray[to_x][to_y] == null) isAvailable = true;
             }
             else if (color == Piece.WHITE && from_y == to_y + 2 && !hasMoved) {
-                if (board.chessBoardArray[to_x][to_y - 1] == null && board.chessBoardArray[to_x][to_y] == null) isAvailable = true;
+                if (board.chessBoardArray[to_x][to_y + 1] == null && board.chessBoardArray[to_x][to_y] == null) isAvailable = true;
             }
             else if (color == Piece.BLACK && from_y == to_y - 1) {
                 if (board.chessBoardArray[to_x][to_y] == null) isAvailable = true;
             }
             else if (color == Piece.BLACK && from_y == to_y - 2 && !hasMoved) {
-                if (board.chessBoardArray[to_x][to_y + 1] == null && board.chessBoardArray[to_x][to_y] == null) isAvailable = true;
+                if (board.chessBoardArray[to_x][to_y - 1] == null && board.chessBoardArray[to_x][to_y] == null) isAvailable = true;
             }
         } else if (Math.abs(from_x - to_x) == 1) {
             if (color == Piece.WHITE && from_y == to_y + 1 && board.chessBoardArray[to_x][to_y] != null && board.chessBoardArray[to_x][to_y].color == Piece.BLACK) isAvailable = true;
