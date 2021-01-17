@@ -1,3 +1,5 @@
+package src.main.java;
+
 //Written by: Nevzat Umut Demirseren
 
 import javax.swing.*;
@@ -5,23 +7,28 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class Board extends JFrame implements ActionListener, MouseListener, MouseMotionListener {
-    public static Piece[][] chessBoardArray;
+    public Piece[][] chessBoardArray;
     Piece movingPiece;
     int movingPiece_x;
     int movingPiece_y;
+
+    int current_x;
+    int current_y;
+
     public Board() {
         chessBoardArray = new Piece[8][8];
         movingPiece = null;
         setSize(1000, 1000);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        setTitle("Chess");
         addMouseListener(this);
         addMouseMotionListener(this);
-        setBackground(Color.orange);
+        setBackground(Color.ORANGE);
         setVisible(true);
     }
 
-    public void paint(Graphics g) {
+    public void fillBackground(Graphics g) {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 //g.drawLine(100 + 100 * i, 100, 100 + 100 * i, 900);
@@ -34,6 +41,16 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
                     else chessBoardArray[i][j].blackImageIcon.paintIcon(this, g, 120 + 100 * i, 120 + 100 * j);
                 }
             }
+        }
+    }
+
+    public void paint(Graphics g) {
+        fillBackground(g);
+        if (movingPiece != null) {
+            if (movingPiece.color == Piece.WHITE) {
+                movingPiece.whiteImageIcon.paintIcon(this, g, current_x - 30, current_y - 30);
+            }
+            else movingPiece.blackImageIcon.paintIcon(this, g, current_x - 30, current_y - 30);
         }
     }
 
@@ -53,36 +70,56 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
         int y_index;
 
         //Calculates the x index of the moving piece
-        if (e.getX() < 100) {
-            x_index = 0;
-        }
-        else if (900 < e.getX()) {
-            x_index = 7;
-        }
-        else {
-            x_index = (e.getX() - 100) / 100;
-        }
-
         //Calculates the y index of the moving piece
-        if (e.getY() < 100) {
-            y_index = 0;
-        }
-        else if (900 < e.getY()) {
-            y_index = 7;
-        }
-        else {
+
+        if (100 <= e.getX() && e.getX() <= 900 && 100 <= e.getY() && e.getY() <= 900) {
+            x_index = (e.getX() - 100) / 100;
             y_index = (e.getY() - 100) / 100;
+            movingPiece = chessBoardArray[x_index][y_index];
+            movingPiece_x = x_index;
+            movingPiece_y = y_index;
+
+            chessBoardArray[x_index][y_index] = null;
+
         }
-
-        movingPiece = chessBoardArray[x_index][y_index];
-        movingPiece_x = x_index;
-        movingPiece_y = y_index;
-
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
+        int destination_x;
+        int destination_y;
 
+        if (e.getX() < 100) {
+            destination_x = 0;
+        }
+        else if (900 < e.getX()) {
+            destination_x = 7;
+        }
+        else {
+            destination_x = (e.getX() - 100) / 100;
+        }
+
+        if (e.getY() < 100) {
+            destination_y = 0;
+        }
+        else if (900 < e.getY()) {
+            destination_y = 7;
+        }
+        else {
+            destination_y = (e.getY() - 100) / 100;
+        }
+
+        if (movingPiece != null) {
+            if (movingPiece.isPathAvailable(this, movingPiece_x, movingPiece_y, destination_x, destination_y)) {
+                chessBoardArray[destination_x][destination_y] = movingPiece;
+                chessBoardArray[movingPiece_x][movingPiece_y] = null;
+            }
+            else {
+                chessBoardArray[movingPiece_x][movingPiece_y] = movingPiece;
+            }
+            movingPiece = null;
+            repaint();
+        }
     }
 
     @Override
@@ -97,7 +134,9 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
 
     @Override
     public void mouseDragged(MouseEvent e) {
-
+        current_x = e.getX();
+        current_y = e.getY();
+        repaint();
     }
 
     @Override

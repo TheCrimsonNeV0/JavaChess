@@ -1,3 +1,4 @@
+package src.main.java;
 //Written by Nevzat Umut Demirseren
 
 import javax.swing.*;
@@ -7,6 +8,6 @@ public abstract class Piece {
     public static final boolean BLACK = true;
     ImageIcon whiteImageIcon;
     ImageIcon blackImageIcon;
-    boolean color;
-    abstract boolean isPathAvailable(int from_x, int from_y, int to_x, int to_y);
+    public boolean color;
+    abstract boolean isPathAvailable(Board board, int from_x, int from_y, int to_x, int to_y);
 }
