@@ -149,7 +149,7 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
+        System.out.println("x: " + e.getX() + "\ny: " + e.getY());
     }
 
     @Override
@@ -221,7 +221,7 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        if (movingPiece != null) {
+        if (movingPiece != null && 130 <= e.getX() && e.getX() <= 870 && 130 <= e.getY() && e.getY() <= 870) {
             current_x = e.getX();
             current_y = e.getY();
             repaint();
