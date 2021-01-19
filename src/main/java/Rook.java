@@ -20,7 +20,7 @@ public class Rook extends Piece{
 
     @Override
     boolean isPathAvailable(Board board, int from_x, int from_y, int to_x, int to_y){
-        if (from_x != to_x && from_y != to_y) return false;
+        if ((to_x < 0 || 7 < to_x || to_y < 0 || 7 < to_y) && from_x != to_x && from_y != to_y) return false;
 
         if (from_x < to_x) {        // right
             for (int i = from_x+1; i < to_x; i++){
