@@ -27,6 +27,9 @@ public class Main {
         b.chessBoardArray[3][0] = new Queen(Piece.BLACK);
         b.chessBoardArray[3][7] = new Queen(Piece.WHITE);
 
+        b.chessBoardArray[4][0] = new King(Piece.BLACK);
+        b.chessBoardArray[4][7] = new King(Piece.WHITE);
+
 
 
         /*b.chessBoardArray[0][0] = new src.main.java.Bishop(src.main.java.Piece.BLACK);

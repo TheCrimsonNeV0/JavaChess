@@ -6,6 +6,7 @@ public class Queen extends Piece{
 
     public Queen(boolean color) {
         this.color = color;
+        moveCount = 0;
         whiteImageIcon = new ImageIcon("src/main/resources/white_queen.png");
         blackImageIcon = new ImageIcon("src/main/resources/black_queen.png");
     }
@@ -83,6 +84,8 @@ public class Queen extends Piece{
         }
 
         // Check if the target color is different or the position is empty
-        return board.chessBoardArray[to_x][to_y] == null || board.chessBoardArray[to_x][to_y].color != this.color;
+        boolean returnValue = board.chessBoardArray[to_x][to_y] == null || board.chessBoardArray[to_x][to_y].color != this.color;
+        if (returnValue) moveCount++;
+        return returnValue;
     }
 }

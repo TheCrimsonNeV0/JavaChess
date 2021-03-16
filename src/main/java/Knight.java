@@ -7,6 +7,7 @@ public class Knight extends Piece{
 
     public Knight(boolean color) {
         this.color = color;
+        moveCount = 0;
         whiteImageIcon = new ImageIcon("src/main/resources/white_knight.png");
         blackImageIcon = new ImageIcon("src/main/resources/black_knight.png");
     }
@@ -19,7 +20,7 @@ public class Knight extends Piece{
 
         if (!(Math.abs(dif_x) == 1 && Math.abs(dif_y) == 2) && !(Math.abs(dif_x) == 2 && Math.abs(dif_y) == 1))
             return false;
-
+        else moveCount++;
         // Check if the target color is different or the position is empty
         return board.chessBoardArray[to_x][to_y] == null || board.chessBoardArray[to_x][to_y].color != this.color;
     }

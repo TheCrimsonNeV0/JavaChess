@@ -7,6 +7,7 @@ public class Bishop extends Piece{
 
     public Bishop(boolean color){
         this.color = color;
+        moveCount = 0;
         whiteImageIcon = new ImageIcon("src/main/resources/white_bishop.png");
         blackImageIcon = new ImageIcon("src/main/resources/black_bishop.png");
     }
@@ -49,6 +50,8 @@ public class Bishop extends Piece{
             }
         }
         // Check if the target color is different or the position is empty
-        return board.chessBoardArray[to_x][to_y] == null || board.chessBoardArray[to_x][to_y].color != this.color;
+        boolean returnValue = board.chessBoardArray[to_x][to_y] == null || board.chessBoardArray[to_x][to_y].color != this.color;
+        if (returnValue) moveCount++;
+        return returnValue;
     }
 }

@@ -9,5 +9,6 @@ public abstract class Piece {
     ImageIcon whiteImageIcon;
     ImageIcon blackImageIcon;
     public boolean color;
+    public int moveCount;
     abstract boolean isPathAvailable(Board board, int from_x, int from_y, int to_x, int to_y);
 }
