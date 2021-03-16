@@ -4,10 +4,10 @@ Chess written in java
 ## Planned features:
   - Multiplayer support via a client and a server
   - Graphical User Interface
-  - Figuring out how the fuck we program the king, en passant and pawn promotion in
+  - Figuring out how we program the king, en passant and pawn promotion in
 
 ## To do:
-  - GUI is broken as fuck someone needs to fix it 
+  - GUI is broken and someone needs to fix it 
   - The gameplay is not turn based at all
 ###Known gui issues:
   - Chess pieces flickering

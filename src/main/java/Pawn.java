@@ -1,5 +1,6 @@
 package src.main.java;
-// Written by: Nevzat Umut Demirseren
+// Written by: Nevzat Umut Demirseren aka The Java GOD
+
 
 import javax.swing.*;
 
