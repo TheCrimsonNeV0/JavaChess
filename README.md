@@ -10,7 +10,7 @@ Chess written in java
   - GUI is broken and someone needs to fix it 
   - The gameplay is not turn based at all
 
-###Known gui issues:
+##Known gui issues:
   - Chess pieces flickering
   - The background doubles as ms paint
   - You can lose ***some*** of the pieces in the background
