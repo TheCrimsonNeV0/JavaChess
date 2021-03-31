@@ -57,7 +57,6 @@ public class Pawn extends Piece {
         if (isAvailable) {
             hasMoved = true;
             moveCount++;
-            System.out.println(moveCount);
         }
         return isAvailable;
     }
