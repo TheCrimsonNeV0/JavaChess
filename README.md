@@ -13,6 +13,8 @@ Chess written in java
   - Some fixes to promotion and en passant
 
 ### Known gui issues:
-  - Chess pieces flickering (WIP) - Arda fixle şunu artık
+  - Chess pieces flickering (WIP)
   - The background doubles as ms paint (Kinda sorta fixed with a band aid)
   - You can lose ***some*** of the pieces in the background
+
+We seriously need a front end guy
