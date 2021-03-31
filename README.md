@@ -6,6 +6,7 @@ Chess written in java
   - Board editor
   - Chess engine support
   - Something like that right click planning thing in lichess
+  - Maybe a browser version idk
 
 ## To do:
   - GUI is broken and someone needs to fix it 
