@@ -1,5 +1,6 @@
 # JavaChess
 Chess written in java
+It's not much but it's honest work
 
 ## Planned features:
   - Online multiplayer
