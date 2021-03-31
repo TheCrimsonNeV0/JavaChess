@@ -39,7 +39,8 @@ public class Main {
 
 
         b.repaint();
-        printboard(b);
+
+        //printboard(b);
         /*try {
 
             //printboard();

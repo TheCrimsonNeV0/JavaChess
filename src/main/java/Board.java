@@ -205,6 +205,7 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
         }
         replacePawnWithQueen();
         repaint();
+
     }
 
     @Override

@@ -1,5 +1,5 @@
 package src.main.java;
-// Written by: Nevzat Umut Demirseren aka The Java GOD
+// Written by: Nevzat Umut Demirseren
 
 
 import javax.swing.*;
@@ -23,26 +23,32 @@ public class Pawn extends Piece {
                 if (board.chessBoardArray[to_x][to_y] == null) isAvailable = true;
             }
             else if (color == Piece.WHITE && from_y == to_y + 2 && moveCount == 0) {
-                if (board.chessBoardArray[to_x][to_y + 1] == null && board.chessBoardArray[to_x][to_y] == null) isAvailable = true;
+                if (board.chessBoardArray[to_x][to_y + 1] == null && board.chessBoardArray[to_x][to_y] == null) {
+                    isAvailable = true;
+                    moveCount = -2; // En passant check
+                }
             }
             else if (color == Piece.BLACK && from_y == to_y - 1) {
                 if (board.chessBoardArray[to_x][to_y] == null) isAvailable = true;
             }
             else if (color == Piece.BLACK && from_y == to_y - 2 && moveCount == 0) {
-                if (board.chessBoardArray[to_x][to_y - 1] == null && board.chessBoardArray[to_x][to_y] == null) isAvailable = true;
+                if (board.chessBoardArray[to_x][to_y - 1] == null && board.chessBoardArray[to_x][to_y] == null) {
+                    isAvailable = true;
+                    moveCount = -2; // En passant check
+                }
             }
         } else if (Math.abs(from_x - to_x) == 1) {
             if (color == Piece.WHITE && from_y == to_y + 1 && board.chessBoardArray[to_x][to_y] != null && board.chessBoardArray[to_x][to_y].color == Piece.BLACK) isAvailable = true;
             else if (color == Piece.BLACK && from_y == to_y - 1 && board.chessBoardArray[to_x][to_y] != null && board.chessBoardArray[to_x][to_y].color == Piece.WHITE) isAvailable = true;
             else if (color == Piece.WHITE && from_y == to_y + 1 && board.chessBoardArray[to_x][to_y] == null &&
                     board.chessBoardArray[to_x][to_y + 1] != null && board.chessBoardArray[to_x][to_y + 1].getClass().getSimpleName().equals("Pawn") &&
-                    board.chessBoardArray[to_x][to_y + 1].moveCount == 1 && board.chessBoardArray[to_x][to_y + 1].color == Piece.BLACK) {
+                    board.chessBoardArray[to_x][to_y + 1].moveCount == -1 && board.chessBoardArray[to_x][to_y + 1].color == Piece.BLACK) {
                 board.chessBoardArray[to_x][to_y + 1] = null;
                 isAvailable = true;
             }
             else if (color == Piece.BLACK && from_y == to_y - 1 && board.chessBoardArray[to_x][to_y] == null &&
                     board.chessBoardArray[to_x][to_y - 1] != null && board.chessBoardArray[to_x][to_y - 1].getClass().getSimpleName().equals("Pawn") &&
-                    board.chessBoardArray[to_x][to_y - 1].moveCount == 1 && board.chessBoardArray[to_x][to_y - 1].color == Piece.WHITE) {
+                    board.chessBoardArray[to_x][to_y - 1].moveCount == -1 && board.chessBoardArray[to_x][to_y - 1].color == Piece.WHITE) {
                 board.chessBoardArray[to_x][to_y - 1] = null;
                 isAvailable = true;
             }
@@ -51,6 +57,7 @@ public class Pawn extends Piece {
         if (isAvailable) {
             hasMoved = true;
             moveCount++;
+            System.out.println(moveCount);
         }
         return isAvailable;
     }
