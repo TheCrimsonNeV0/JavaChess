@@ -2,6 +2,7 @@ package src.main.java;
 
 //Written by: Nevzat Umut Demirseren
 
+import javax.print.attribute.standard.Finishings;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -32,9 +33,11 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
         class NewPieceSelection extends JFrame implements MouseListener {
             int x;
             int y;
-            public NewPieceSelection(int x, int y) {
+            boolean color;
+            public NewPieceSelection(int x, int y, boolean color) {
                 this.x = x;
                 this.y = y;
+                this.color = color;
                 setSize(600, 200);
                 setBackground(Color.CYAN);
                 setResizable(false);
@@ -46,15 +49,23 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
             public void paint(Graphics g) {
                 for (int i = 0; i < 4; i++) {
                     if (i % 2 == 0) g.setColor(Color.WHITE);
-                    else g.setColor(Color.BLACK);
+                    else g.setColor(Color.GRAY);
 
                     g.fillRect(100 + 100 * i, 60, 100, 100);
                 }
 
-                new Rook(Piece.WHITE).whiteImageIcon.paintIcon(this, g, 120, 80);
-                new Knight(Piece.WHITE).whiteImageIcon.paintIcon(this, g, 220, 80);
-                new Bishop(Piece.WHITE).whiteImageIcon.paintIcon(this, g, 320, 80);
-                new Queen(Piece.WHITE).whiteImageIcon.paintIcon(this, g, 420, 80);
+                if (color == Piece.WHITE) {
+                    new Rook(Piece.WHITE).whiteImageIcon.paintIcon(this, g, 120, 80);
+                    new Knight(Piece.WHITE).whiteImageIcon.paintIcon(this, g, 220, 80);
+                    new Bishop(Piece.WHITE).whiteImageIcon.paintIcon(this, g, 320, 80);
+                    new Queen(Piece.WHITE).whiteImageIcon.paintIcon(this, g, 420, 80);
+                }
+                else {
+                    new Rook(Piece.BLACK).blackImageIcon.paintIcon(this, g, 120, 80);
+                    new Knight(Piece.BLACK).blackImageIcon.paintIcon(this, g, 220, 80);
+                    new Bishop(Piece.BLACK).blackImageIcon.paintIcon(this, g, 320, 80);
+                    new Queen(Piece.BLACK).blackImageIcon.paintIcon(this, g, 420, 80);
+                }
             }
 
             @Override
@@ -64,19 +75,19 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
 
                 if (60 <= yPosition && yPosition <= 155) {
                     if (100 <= xPosition && xPosition < 200) {
-                        chessBoardArray[x][y] = new Rook(Piece.WHITE);
+                        chessBoardArray[x][y] = new Rook(color);
                         dispose();
                     }
                     else if (200 <= xPosition && xPosition < 300) {
-                        chessBoardArray[x][y] = new Knight(Piece.WHITE);
+                        chessBoardArray[x][y] = new Knight(color);
                         dispose();
                     }
                     else if (300 <= xPosition && xPosition < 400) {
-                        chessBoardArray[x][y] = new Bishop(Piece.WHITE);
+                        chessBoardArray[x][y] = new Bishop(color);
                         dispose();
                     }
                     else if (400 <= xPosition && xPosition < 500) {
-                        chessBoardArray[x][y] = new Queen(Piece.WHITE);
+                        chessBoardArray[x][y] = new Queen(color);
                         dispose();
                     }
                 }
@@ -104,13 +115,14 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
         }
         for (int i = 0; i < chessBoardArray.length; i++) {
             if (chessBoardArray[i][0] != null && chessBoardArray[i][0].getClass().getSimpleName().equals("Pawn") && chessBoardArray[i][0].color == Piece.WHITE) {
-                NewPieceSelection whitePieceSelection = new NewPieceSelection(i, 0);
+                NewPieceSelection whitePieceSelection = new NewPieceSelection(i, 0, Piece.WHITE);
 
             }
             if (chessBoardArray[i][7] != null && chessBoardArray[i][7].getClass().getSimpleName().equals("Pawn") && chessBoardArray[i][7].color == Piece.BLACK) {
-                chessBoardArray[i][7] = new Queen(Piece.BLACK);
+                NewPieceSelection blackPieceSelection = new NewPieceSelection(i, 7, Piece.BLACK);
             }
         }
+        repaint();
     }
 
     public void fillBackground(Graphics g) {
