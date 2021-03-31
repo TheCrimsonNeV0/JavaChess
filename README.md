@@ -11,6 +11,7 @@ Chess written in java
   - GUI is broken and someone needs to fix it 
   - The gameplay is not turn based at all
   - Some fixes to promotion and en passant
+  - Build via gradle
 
 ### Known gui issues:
   - Chess pieces flickering (WIP)
