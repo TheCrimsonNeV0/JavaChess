@@ -11,7 +11,7 @@ Chess written in java. It's not much but it's honest work
 ## To do:
   - GUI is broken and someone needs to fix it 
   - The gameplay is not turn based at all
-  - Some fixes to promotion and en passant
+  - Chack and checkmate
   - Build via gradle
 
 ### Known gui issues:
