@@ -20,7 +20,7 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
         chessBoardArray = new Piece[8][8];
         movingPiece = null;
         setSize(1000, 1000);
-        getContentPane().setBackground(Color.ORANGE);
+        setBackground(Color.ORANGE);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         setTitle("Chess");
