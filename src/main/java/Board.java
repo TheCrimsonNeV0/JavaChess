@@ -20,16 +20,16 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
         chessBoardArray = new Piece[8][8];
         movingPiece = null;
         setSize(1000, 1000);
+        getContentPane().setBackground(Color.ORANGE);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         setTitle("Chess");
         addMouseListener(this);
         addMouseMotionListener(this);
-        setBackground(Color.ORANGE);
         setVisible(true);
     }
 
-    public void replacePawnWithQueen() {
+    public void promotePawn() {
         class NewPieceSelection extends JFrame implements MouseListener {
             int x;
             int y;
@@ -215,7 +215,7 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
             }
             movingPiece = null;
         }
-        replacePawnWithQueen();
+        promotePawn();
         repaint();
 
     }
@@ -235,7 +235,6 @@ public class Board extends JFrame implements ActionListener, MouseListener, Mous
         if (movingPiece != null && 130 <= e.getX() && e.getX() <= 870 && 130 <= e.getY() && e.getY() <= 870) {
             current_x = e.getX();
             current_y = e.getY();
-            repaint();
         }
     }
 
